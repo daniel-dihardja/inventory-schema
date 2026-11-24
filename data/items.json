@@ -1,0 +1,131 @@
+[
+  {
+    "id": "11111111-1111-4111-8111-111111111111",
+    "name": "Roma tomatoes",
+    "quantity": 12.5,
+    "unit": "kg",
+    "sku": "veg-tomato-roma",
+    "lot": "LOT-42",
+    "supplier": "Fresh Farm Co",
+    "expires_at": "2026-03-28",
+    "notes": "Morning delivery",
+    "stage_id": "delivered",
+    "stage_props": {
+      "received_at": "2026-03-21T09:30:00Z"
+    },
+    "board_id": "kitchen_receiving_v1",
+    "board_version": 3,
+    "created_at": "2026-03-21T09:30:00Z",
+    "updated_at": "2026-03-21T09:30:00Z"
+  },
+  {
+    "id": "22222222-2222-4222-8222-222222222222",
+    "name": "Chicken breast",
+    "quantity": 8,
+    "unit": "kg",
+    "sku": "meat-chicken-breast",
+    "lot": "LOT-77",
+    "supplier": "Valley Poultry",
+    "expires_at": "2026-03-24",
+    "stage_id": "quality_check",
+    "stage_props": {
+      "passed": true,
+      "inspector": "Ayu",
+      "notes": "Temp OK"
+    },
+    "board_id": "kitchen_receiving_v1",
+    "board_version": 3,
+    "created_at": "2026-03-20T08:00:00Z",
+    "updated_at": "2026-03-20T10:15:00Z"
+  },
+  {
+    "id": "33333333-3333-4333-8333-333333333333",
+    "name": "Coconut milk",
+    "quantity": 24,
+    "unit": "pcs",
+    "sku": "dairy-coconut-400ml",
+    "lot": "LOT-19",
+    "supplier": "Island Goods",
+    "expires_at": "2026-06-01",
+    "stage_id": "store",
+    "stage_props": {
+      "location": "dry_store",
+      "expires_at": "2026-06-01"
+    },
+    "board_id": "kitchen_receiving_v1",
+    "board_version": 3,
+    "created_at": "2026-03-18T14:00:00Z",
+    "updated_at": "2026-03-19T09:00:00Z"
+  },
+  {
+    "id": "44444444-4444-4444-8444-444444444444",
+    "name": "Jasmine rice",
+    "quantity": 25,
+    "unit": "kg",
+    "sku": "grain-jasmine",
+    "supplier": "Rice House",
+    "stage_id": "store",
+    "stage_props": {
+      "location": "dry_store"
+    },
+    "board_id": "kitchen_receiving_v1",
+    "board_version": 3,
+    "created_at": "2026-03-15T11:00:00Z",
+    "updated_at": "2026-03-16T08:30:00Z"
+  },
+  {
+    "id": "55555555-5555-4555-8555-555555555555",
+    "name": "Shallots",
+    "quantity": 5,
+    "unit": "kg",
+    "sku": "veg-shallot",
+    "lot": "LOT-11",
+    "supplier": "Fresh Farm Co",
+    "expires_at": "2026-03-30",
+    "stage_id": "preparation",
+    "stage_props": {
+      "portion_qty": 2.5,
+      "prepared_by": "Budi"
+    },
+    "board_id": "kitchen_receiving_v1",
+    "board_version": 3,
+    "created_at": "2026-03-19T07:45:00Z",
+    "updated_at": "2026-03-21T11:20:00Z"
+  },
+  {
+    "id": "66666666-6666-4666-8666-666666666666",
+    "name": "Salmon fillet",
+    "quantity": 3,
+    "unit": "kg",
+    "sku": "seafood-salmon",
+    "lot": "LOT-90",
+    "supplier": "Ocean Catch",
+    "expires_at": "2026-03-22",
+    "notes": "Soft texture on arrival",
+    "stage_id": "return",
+    "stage_props": {
+      "reason": "Quality below spec",
+      "notes": "Supplier notified"
+    },
+    "board_id": "kitchen_receiving_v1",
+    "board_version": 3,
+    "created_at": "2026-03-21T07:00:00Z",
+    "updated_at": "2026-03-21T08:40:00Z"
+  },
+  {
+    "id": "77777777-7777-4777-8777-777777777777",
+    "name": "Cooking oil",
+    "quantity": 10,
+    "unit": "L",
+    "sku": "oil-palm",
+    "supplier": "Kitchen Supply",
+    "stage_id": "delivered",
+    "stage_props": {
+      "received_at": "2026-03-21T16:00:00Z"
+    },
+    "board_id": "kitchen_receiving_v1",
+    "board_version": 3,
+    "created_at": "2026-03-21T16:00:00Z",
+    "updated_at": "2026-03-21T16:00:00Z"
+  }
+]

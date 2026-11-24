@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "board.schema.json",
+  "title": "InventoryBoard",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "label",
+    "initial_stage_id",
+    "stages",
+    "transitions"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "version": { "type": "integer", "minimum": 1 },
+    "label": { "type": "string", "minLength": 1 },
+    "initial_stage_id": { "type": "string", "minLength": 1 },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "order", "props_schema"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "order": { "type": "integer", "minimum": 1 },
+          "props_schema": {
+            "type": "object",
+            "required": ["type", "properties"],
+            "properties": {
+              "type": { "const": "object" },
+              "required": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "properties": { "type": "object" },
+              "additionalProperties": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "id": "kitchen_receiving_v1",
+  "version": 3,
+  "label": "Kitchen receiving",
+  "initial_stage_id": "delivered",
+  "stages": [
+    {
+      "id": "delivered",
+      "label": "Delivered",
+      "order": 1,
+      "props_schema": {
+        "type": "object",
+        "required": ["received_at"],
+        "properties": {
+          "received_at": { "type": "string", "format": "date-time" }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "quality_check",
+      "label": "Quality check",
+      "order": 2,
+      "props_schema": {
+        "type": "object",
+        "required": ["passed"],
+        "properties": {
+          "passed": { "type": "boolean" },
+          "notes": { "type": "string" },
+          "inspector": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "store",
+      "label": "Store",
+      "order": 3,
+      "props_schema": {
+        "type": "object",
+        "required": ["location"],
+        "properties": {
+          "location": {
+            "type": "string",
+            "enum": [
+              "dry_store",
+              "pantry",
+              "walk_in_cooler",
+              "walk_in_freezer",
+              "reach_in_cooler",
+              "reach_in_freezer",
+              "prep_area"
+            ]
+          },
+          "expires_at": { "type": "string", "format": "date" }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "preparation",
+      "label": "Preparation",
+      "order": 4,
+      "props_schema": {
+        "type": "object",
+        "required": ["portion_qty"],
+        "properties": {
+          "portion_qty": { "type": "number", "minimum": 0 },
+          "prepared_by": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "return",
+      "label": "Return",
+      "order": 5,
+      "props_schema": {
+        "type": "object",
+        "required": ["reason"],
+        "properties": {
+          "reason": { "type": "string", "minLength": 1 },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  ],
+  "transitions": [
+    ["delivered", "quality_check"],
+    ["quality_check", "store"],
+    ["store", "preparation"],
+    ["quality_check", "return"],
+    ["store", "return"]
+  ]
+}

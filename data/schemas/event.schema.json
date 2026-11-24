@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "event.schema.json",
+  "title": "InventoryEvent",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "at",
+    "item_id",
+    "to_stage_id",
+    "stage_props"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "type": {
+      "type": "string",
+      "enum": ["item_created", "item_moved", "item_updated"]
+    },
+    "at": { "type": "string", "format": "date-time" },
+    "item_id": { "type": "string", "format": "uuid" },
+    "from_stage_id": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "to_stage_id": { "type": "string", "minLength": 1 },
+    "stage_props": { "type": "object" },
+    "item_snapshot": {
+      "type": ["object", "null"]
+    }
+  }
+}
