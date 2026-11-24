@@ -16,6 +16,8 @@ These specs are modeled after a **kanban board**. In kanban, work items move thr
 
 That parallel is intentional: instead of hard-coding one warehouse or kitchen flow, you **define a custom inventory setup by shaping the board schema**—which stages exist, which moves are allowed, and which properties each stage needs. The kitchen receiving example (`examples/kitchen/`) is one such setup; a retail stockroom, cold-chain receiving line, or prep-only board would use the same schema shapes with different stage labels, transitions, and `props_schema` definitions.
 
+![Kitchen inventory board in the reference viewer — stages with props and items, allowed transitions, and the event log](docs/viewer-kitchen.png)
+
 ```text
 inventory/
   packages/
