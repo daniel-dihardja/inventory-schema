@@ -2,6 +2,20 @@
 
 **Inventory specification** (JSON Schema + TypeScript types + kitchen example), with a reference viewer as a separate package.
 
+## Kanban-inspired inventory
+
+These specs are modeled after a **kanban board**. In kanban, work items move through columns (stages) along allowed transitions, carrying whatever details matter in each column. An inventory system behaves the same way: stock items move through lifecycle stages (e.g. delivered → quality check → store → preparation), and each stage can require its own fields.
+
+| Kanban | Inventory |
+| --- | --- |
+| Columns | Stages (`board.json` → `stages`) |
+| Cards | Items (`items.json`) |
+| Move rules | Transitions (`board.json` → `transitions`) |
+| Per-column fields | Per-stage `props_schema` |
+| Activity log | Append-only events (`events.jsonl`) |
+
+That parallel is intentional: instead of hard-coding one warehouse or kitchen flow, you **define a custom inventory setup by shaping the board schema**—which stages exist, which moves are allowed, and which properties each stage needs. The kitchen receiving example (`examples/kitchen/`) is one such setup; a retail stockroom, cold-chain receiving line, or prep-only board would use the same schema shapes with different stage labels, transitions, and `props_schema` definitions.
+
 ```text
 inventory/
   packages/
