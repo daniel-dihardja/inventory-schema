@@ -1,0 +1,26 @@
+{
+  "name": "@menuyukti/inventory-spec",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Inventory specification: JSON Schemas, TypeScript types, and kitchen example state",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types.ts",
+      "default": "./types.ts"
+    },
+    "./schemas/*": "./schemas/*",
+    "./examples/kitchen/*": "./examples/kitchen/*"
+  },
+  "files": [
+    "schemas",
+    "examples",
+    "types.ts"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

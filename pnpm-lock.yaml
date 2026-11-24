@@ -6,8 +6,19 @@ settings:
 
 importers:
 
-  .:
+  .: {}
+
+  packages/spec:
+    devDependencies:
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+
+  packages/viewer:
     dependencies:
+      '@menuyukti/inventory-spec':
+        specifier: workspace:*
+        version: link:../spec
       ajv:
         specifier: ^8.17.1
         version: 8.20.0

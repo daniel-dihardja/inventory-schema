@@ -1,21 +1,20 @@
 import Ajv2020 from "ajv/dist/2020"
 import addFormats from "ajv-formats"
 
-import boardJson from "../data/board.json"
-import eventsRaw from "../data/events.jsonl?raw"
-import itemsJson from "../data/items.json"
-import boardSchema from "../data/schemas/board.schema.json"
-import eventSchema from "../data/schemas/event.schema.json"
-import itemSchema from "../data/schemas/item.schema.json"
-import itemsSchema from "../data/schemas/items.schema.json"
-
 import type {
   InventoryBoard,
   InventoryEvent,
   InventoryItem,
   InventoryState,
   JsonSchema,
-} from "./types"
+} from "@menuyukti/inventory-spec"
+import boardJson from "@menuyukti/inventory-spec/examples/kitchen/board.json"
+import eventsRaw from "@menuyukti/inventory-spec/examples/kitchen/events.jsonl?raw"
+import itemsJson from "@menuyukti/inventory-spec/examples/kitchen/items.json"
+import boardSchema from "@menuyukti/inventory-spec/schemas/board.schema.json"
+import eventSchema from "@menuyukti/inventory-spec/schemas/event.schema.json"
+import itemSchema from "@menuyukti/inventory-spec/schemas/item.schema.json"
+import itemsSchema from "@menuyukti/inventory-spec/schemas/items.schema.json"
 
 const ajv = new Ajv2020({ allErrors: true, strict: false })
 addFormats(ajv)

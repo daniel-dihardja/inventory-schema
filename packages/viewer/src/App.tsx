@@ -10,8 +10,8 @@ export function App() {
           <p className="eyebrow">JSON-only inventory</p>
           <h1>Kitchen receiving</h1>
           <p className="lede">
-            Schemas and sample state live under <code>data/</code>. TypeScript loads
-            schemas first, validates the JSON, then renders this board.
+            Spec lives in <code>@menuyukti/inventory-spec</code>. This viewer loads
+            the kitchen example, validates it against the schemas, then renders the board.
           </p>
         </header>
         <BoardView board={state.board} items={state.items} events={state.events} />

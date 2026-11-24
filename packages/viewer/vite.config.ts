@@ -5,5 +5,9 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
+    fs: {
+      // Allow importing JSON/JSONL from the sibling workspace package.
+      allow: [".."],
+    },
   },
 })

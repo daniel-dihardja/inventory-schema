@@ -1,35 +1,61 @@
 # menuyukti inventory
 
-Standalone **JSON-only** kitchen inventory example + TypeScript web viewer.
+**Inventory specification** (JSON Schema + TypeScript types + kitchen example), with a reference viewer as a separate package.
 
 ```text
 inventory/
-  data/                 # schemas + example state (source of truth)
-    schemas/
-      board.schema.json
-      item.schema.json
-      items.schema.json
-      event.schema.json
-    board.json
-    items.json
-    events.jsonl
-  src/                  # TypeScript viewer
+  packages/
+    spec/                   # @menuyukti/inventory-spec  ← the product
+      schemas/              # board, item, items, event
+      examples/kitchen/     # board.json, items.json, events.jsonl
+      types.ts
+    viewer/                 # @menuyukti/inventory-viewer  ← example consumer
+      src/
 ```
 
-## Run
+## Specification
+
+| Artifact | Role |
+| --- | --- |
+| `packages/spec/schemas/*.schema.json` | Canonical shapes for board, items, and events |
+| `packages/spec/types.ts` | TypeScript types aligned with those schemas |
+| `packages/spec/examples/kitchen/` | One valid instance (kitchen receiving board) |
+
+Consumers should treat schemas as the source of truth. Edit example JSON under `examples/kitchen/` and re-validate; do not invent parallel shapes in app code.
+
+### Files in an inventory instance
+
+1. **`board.json`** — stages, transitions, initial stage, per-stage `props_schema`
+2. **`items.json`** — current item state (quantity, stage, stage props, …)
+3. **`events.jsonl`** — append-only history (`item_created` / `item_moved` / `item_updated`)
+
+## Packages
+
+| Package | Name | Purpose |
+| --- | --- | --- |
+| Spec | `@menuyukti/inventory-spec` | Schemas, types, kitchen example |
+| Viewer | `@menuyukti/inventory-viewer` | Vite + React UI that loads and validates the kitchen example |
+
+Import from the spec package:
+
+```ts
+import type { InventoryItem } from "@menuyukti/inventory-spec"
+import itemSchema from "@menuyukti/inventory-spec/schemas/item.schema.json"
+import board from "@menuyukti/inventory-spec/examples/kitchen/board.json"
+```
+
+## Run the example viewer
 
 ```bash
-cd /Users/danieldihardja/dev/AI-Products/menuyukti/inventory
 pnpm install
 pnpm dev
 ```
 
 Open the URL Vite prints (default http://localhost:5173).
 
-## How it works
+```bash
+pnpm typecheck   # all packages
+pnpm build       # viewer production build
+```
 
-1. TypeScript loads JSON schemas from `data/schemas/`
-2. Validates `board.json`, `items.json`, and `events.jsonl` with [Ajv](https://ajv.js.org/)
-3. Renders the kanban board, item cards, transitions, and event history
-
-No database. Edit files under `data/` and refresh.
+No database. Change files under `packages/spec/` and refresh the viewer.

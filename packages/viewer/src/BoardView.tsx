@@ -4,7 +4,7 @@ import type {
   InventoryItem,
   InventoryStage,
   JsonSchema,
-} from "./types"
+} from "@menuyukti/inventory-spec"
 
 type BoardViewProps = {
   board: InventoryBoard
