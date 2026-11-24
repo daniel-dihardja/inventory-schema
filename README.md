@@ -1,4 +1,4 @@
-# menuyukti inventory
+# Inventory board
 
 **Inventory specification** (JSON Schema + TypeScript types + kitchen example), with a reference viewer as a separate package.
 
