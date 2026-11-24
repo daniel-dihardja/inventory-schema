@@ -60,6 +60,9 @@ function SchemaFieldList({ schema }: { schema: JsonSchema }) {
 
 function ItemCard({ item }: { item: InventoryItem }) {
   const meta = [
+    item.unit_price != null && item.currency
+      ? `price: ${item.unit_price} ${item.currency} / ${item.unit}`
+      : null,
     item.supplier ? `supplier: ${item.supplier}` : null,
     item.lot ? `lot: ${item.lot}` : null,
     item.expires_at ? `expires: ${item.expires_at}` : null,

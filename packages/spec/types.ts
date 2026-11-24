@@ -37,6 +37,8 @@ export type InventoryItem = {
   name: string
   quantity: number
   unit: string
+  unit_price?: number | null
+  currency?: string | null
   sku?: string | null
   lot?: string | null
   supplier?: string | null

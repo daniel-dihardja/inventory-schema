@@ -21,6 +21,13 @@
     "name": { "type": "string", "minLength": 1 },
     "quantity": { "type": "number", "minimum": 0 },
     "unit": { "type": "string", "enum": ["kg", "g", "L", "ml", "pcs"] },
+    "unit_price": { "type": "number", "minimum": 0 },
+    "currency": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3,
+      "pattern": "^[A-Z]{3}$"
+    },
     "sku": { "type": "string", "minLength": 1 },
     "lot": { "type": "string", "minLength": 1 },
     "supplier": { "type": "string", "minLength": 1 },
